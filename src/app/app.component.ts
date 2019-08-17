@@ -6,5 +6,39 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ProjetAngular';
+  isAuth = false;
+  lastUpdate = new  Promise((resolve, reject) => {
+    const date = new Date();
+    setTimeout(
+      () => {
+        resolve(date);
+      }, 2000
+    );
+    
+    });
+  appareils = [
+    {
+    name: "Machine à laver",
+    status: "éteint"
+    },
+    {
+    name: "Frigo",
+    status: "éteint"
+    },
+    {
+    name: "Ordinateur",
+    status: "éteint"
+    },
+  ];
+
+  constructor() {
+      setTimeout(
+        () => {
+          this.isAuth = true;
+        } , 2000
+       );
+  }
+  onAllumer() {
+    console.log('On allume tout !');
+}
 }
